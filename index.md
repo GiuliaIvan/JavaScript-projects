@@ -1,3 +1,3 @@
 title: cattle inventory
 layout: template
-filename: NAME OF THIS .md FILE HERE
+filename: index.md
