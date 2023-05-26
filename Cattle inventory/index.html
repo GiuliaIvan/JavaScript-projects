@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GR8's cattle inventory</title>
+    <link rel="stylesheet" href="styles/mystyle.css">
+</head>
+
+<body>
+
+<!-- <script src="utils/guitarClass.js"></script> -->
+
+    <!-- Video2 -->
+<!-- <script>
+    //Testing guitar class
+    const myGuitar = new Guitar("34-343", 3123.75, "Gibson", "Les Paul", "Electric", "Maple", "Walnut");
+
+    console.log(myGuitar.getSerialNumber());
+    console.log(myGuitar.getPrice());
+    console.log(myGuitar.getBuilder());
+    console.log(myGuitar.getModel());
+    console.log(myGuitar.getType());
+    console.log(myGuitar.getBackWood());
+    console.log(myGuitar.getTopWood());
+</script> -->
+
+
+<!-- <script src="utils/inventoryClass.js"></script>
+
+
+<script>
+    //Testing inventory class
+
+    const guitarList = new Inventory();
+    guitarList.addGuitar("34-343", 3123.75, "Gibson", "Les Paul", "Electric", "Maple", "Walnut");
+    guitarList.addGuitar("74-323", 5407.00, "Fender", "Stratocaster", "Electric", "Cedar", "Mahogany");
+    guitarList.addGuitar("11-421", 109.50, "Yamaha", "F310", "Acoustic", "Ash", "Birch");
+    guitarList.addGuitar("67-965", 199.76, "Tanglewood", "Crossroads", "Acoustic", "Mahogany", "Mahogany");
+
+    // console.log(guitarList.getGuitar("34-343"));
+
+    const optimalGuitar = new Guitar ("", 2000.00, "Yamaha", "F310", "Acoustic", "Ash", "Birch");
+    console.log(guitarList.search(optimalGuitar));
+
+</script> -->
+
+    <!-- 4th video -->
+    <h1>GR8's cattle inventory</h1>
+    <div class="header">
+        <div>
+            <button type="button" class="button" id="addCowButton">Add cow</button>
+            <button type="button" class="button" id="showAllCowsButton">Show all cows</button>
+        </div>
+        <form id="rnSearchForm">
+            <input type="search" id="rnField" class="inputField" placeholder="Search registration number" required>
+            <button type="submit" class="button">Search</button>
+        </form>
+    </div>
+
+    <!-- Panel starts here -->
+    <aside class="searchPanel" id="searchPanel">
+        <span class="panelText" id="panelText">A D V A N C E D&nbsp;&nbsp;S E A R C H</span>
+        <form id="searchForm" class="searchForm">
+            <div class="closeCross" id="closeCross">X</div>
+            
+            <label class="searchFormLabel" for="stallNumber">Stall</label>
+            <input type="text" id="stallNumber" class="searchFormField">
+
+            <label class="searchFormLabel" for="breed">Breed</label>
+            <input type="text" id="breed" class="searchFormField">
+
+            <label class="searchFormLabel" for="birthday">Birthday</label>
+            <input type="text" id="birthday" class="searchFormField">
+
+            <label class="searchFormLabel" for="milkProduction">Milk Production</label>
+            <input type="number" step="1" id="milkProduction" class="searchFormField">
+
+            <br><br>
+
+            <div class="searchFormPanel">
+                <button type="reset" class="searchFormButton">Reset</button>
+                <button type="submit" class="searchFormButton">Apply</button>
+            </div>
+        </form>
+    </aside>
+    <!-- Panel ends hrere -->
+
+    <!-- Add guitar dialog starts -->
+        <dialog id="cowDialog">
+            <form method="dialog" id="cowDialogForm">
+                <fieldset>
+                    <legend>Add new cow</legend>
+                    <label for="rnfield">R/N:</label><input text="text" class="inputField dialogField" 
+                    id="rnfield" placeholder="Type in registration number" required>
+
+                    <label for="stallfield">Stall:</label><input text="text" class="inputField dialogField" 
+                    id="stallfield" placeholder="Type in stall name" required>
+
+                    <label for="breedfield">Breed:</label><input text="text" class="inputField dialogField" 
+                    id="breedfield" placeholder="Type in breed name" required>
+
+                    <label for="birthdayfield">Birthday:</label><input text="text" class="inputField dialogField" 
+                    id="birthdayfield" placeholder="Type in cow's birthday" required>
+
+                    <label for="milkProductionfield">Milk Production:</label><input text="number" class="inputField dialogField" 
+                    id="milkProductionfield" placeholder="Type in milk production number" required>
+
+                    <br><br>
+                    <div class="dialogBtnsPanel">
+                        <button type="button" id="cancelButton" class="button">Cancel</button>
+                        <button type="submit" id="saveButton" class="button">Save</button>
+                    </div>
+                </fieldset>
+            </form>
+        </dialog>
+    <!-- Add guitar dialog ends -->
+
+    <!-- Delete confirmation dialog start -->
+    <dialog id="confirmDialog">
+        <form method="dialog" id="confirmDialogForm">
+            <fieldset>
+                <legend>Delete cow?</legend>
+                Do you really want to delete cow?
+                <br><br>
+                <div class="dialogBtnsPanel">
+                    <button type="submit" class="button">Yes</button>
+                    <button type="button" class="button" id="cancelConfirmBtn">No</button>
+                </div>
+            </fieldset>
+        </form>
+    </dialog>
+    <!-- Delete confirmation dialog end -->
+
+    <!-- Hidden Field -->
+    <form>
+        <input type="hidden" id="hiddenRnField">
+    </form>
+
+    <!-- Table of cows -->
+    <!-- <table class="tablelist">
+        <thead>
+            <tr>
+                <th>Registration Number</th>
+                <th>Stall</th>
+                <th>Breed</th>
+                <th>Birthday</th>
+                <th>Milk ( L / Year )</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="searchResult"></tbody>
+    </table> -->
+
+    <!-- Cow cards -->
+    <div id="searchResult"></div>
+
+    <!-- Snackbar Add guitar message -->
+    <div id="snackbar">Some message will arrive</div>
+
+    <script type="module">
+        import Model from "./models/model.js"
+        import Controller from "./controllers/controller.js"
+        import View from "./views/view.js"
+
+        window.onload = function () {
+            const model = new Model();
+            const controller = new Controller();
+            const view = new View(controller);
+            controller.initialize(model, view);
+        }
+    </script>
+
+</body>
+</html>

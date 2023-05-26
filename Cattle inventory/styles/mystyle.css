@@ -1,0 +1,192 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.searchform {
+   padding: 10px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    margin-right: 35px;
+}
+
+.inputField,
+.button {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: rgb(211, 206, 206); 
+}
+
+#dialogForm {
+    width: 300px;
+    border: 0;
+    box-shadow: 10px 10px 5px gray;
+}
+
+.dialogField {
+    width: 95%;
+}
+
+.dialogBtnsPanel {
+    display: flex;
+    justify-content: space-between;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;;
+}
+
+#cowDialog {
+    width: 25%;
+}
+
+/* Source: https://www.w3schools.com/howto/howto_js_snackbar.asp */
+
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+  }
+  
+  #snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  
+  @-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+
+
+  /* Search panel start */
+
+  .searchPanel {
+    position: fixed;
+    background-color: orange;
+    height: 100vh;
+    width: 30px;
+    right: 0px;
+    top: 0;
+    transition: width 2s;
+    display: flex;
+  }
+
+  .searchPanelAnim {
+    width: 300px;
+  }
+
+  .panelText {
+    position: relative;
+    color: white;
+    top: 20px;
+    left: 5px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    height: 95vh;
+    cursor: pointer;
+  }
+
+  .closeCross {
+    text-align: right;
+    color: white;
+    cursor: pointer;
+  }
+
+  .searchForm {
+    padding-left: 20px;
+    padding-top: 100px;
+  }
+
+  .searchFormLabel {
+    color: white;
+    display: block;
+  }
+
+  .searchFormField {
+    width: 225px;
+  }
+
+  .searchFormPanel {
+    display: flex;
+  }
+
+  /* Search panel end */
+
+
+  /* Cards styling */
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Remove extra left and right margins, due to padding */
+  .row { 
+    margin: 0 -5px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    /* display: table; */
+    clear: both;
+  }
+  
+  /* Float four columns side by side */
+  .column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the counter cards */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+  }
+  
+  /* Responsive columns */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
